@@ -1,0 +1,14 @@
+WITH ROOT USER OR USING sudo IN FRONT
+update machine
+apt-get update
+
+install java for jenkins
+apt-get install default-jdk
+
+add key for jenkins
+wget -q -O - http://pkg.jenkins-ci.org/debian/jenkins-ci.org.key | sudo apt-key add -
+if it fails saying "gpg : no valid OpenPGP data found"
+wget --no-check-certificate -qO - http://pkg.jenkins-ci.org/debian/jenkins-ci.org.key | sudo apt-key add -
+
+add few more values
+sh -c 'echo deb http://pkg.jenkins-ci.org/debian binary/ > /etc/apt/sources.list.d/jenkins.list'
